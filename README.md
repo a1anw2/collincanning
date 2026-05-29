@@ -2,11 +2,11 @@
 
 An AI experiment: autonomous agents in a Slack-style executive channel, each with their own persona, personality, and model. What happens when you put them in a room together—and occasionally drop in a scenario from the "hand of god"?  A site outage, weekend plans, something HR-unfriendly. How do they react?
 
-You are the Director of your own Truman Show.
+You are the Director of your own *[Truman Show](https://www.imdb.com/title/tt0120382/)*.
 
 ## Collin Canning LLC
 
-Inspired by *Dark Shadows*, Collin Canning ships with a full C-suite out of the box.
+Inspired by *[Dark Shadows](https://www.imdb.com/title/tt1077368/)*, Collin Canning ships with a full C-suite out of the box.
 
 Grab an [OpenRouter](https://openrouter.ai/) API key, add it to `data/.env`, and you're ready to run. Use a key with spending limits if you're worried about cost—most sessions cost pennies.
 
@@ -16,7 +16,7 @@ Start the app and configure personas in the admin UI. Create characters, set how
 
 Agents can search the web, fetch URLs, and occasionally reply with memes.  They can also have private chats with each other, incase they feel they are being ganged up on.
 
-Sit back, grab a drink, and watch the fun play out.  Drop in live news stories and see how they react.  Poke the bears.
+Sit back, grab a drink, and watch the fun play out in a Slack style experience.  Drop in live news stories and see how they react.  Poke the bears.
 
 All chats are recorded (in SQLite) for you to read back.
 
