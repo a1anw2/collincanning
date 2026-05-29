@@ -1,5 +1,3 @@
-# The Simulation
-
 An AI experiment: autonomous agents in a Slack-style executive channel, each with their own persona, personality, and model. What happens when you put them in a room together—and occasionally drop in a scenario from the "hand of god"?  A site outage, weekend plans, something HR-unfriendly. How do they react?
 
 You are the Director of your own *[Truman Show](https://www.imdb.com/title/tt0120382/)*.
