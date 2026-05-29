@@ -1,0 +1,41 @@
+---
+description: Tailwind-only styling for frontend UI
+globs: src/frontend/**/*.{tsx,css}
+alwaysApply: false
+---
+
+# Frontend styling (Tailwind v4)
+
+- **New and changed UI** must use Tailwind utility classes in TSX. Avoid bespoke global CSS and BEM-style class strings unless you are in `app.css` / `tokens.css` for theme wiring.
+- **Shared studio UI:** reuse class strings from [`src/frontend/src/lib/studio-ui.ts`](src/frontend/src/lib/studio-ui.ts) when the same pattern appears more than once.
+- **Do not** use `@apply` in CSS; use utilities in markup.
+- **Theme tokens:** use utilities backed by [`src/frontend/src/app.css`](src/frontend/src/app.css) `@theme` (from [`tokens.css`](src/frontend/src/tokens.css) `--theme-*` → e.g. `bg-page`, `bg-surface`, `text-text-muted`, `border-border`, `rounded-lg`, `var(--color-accent)` in arbitrary values). Avoid random hex in TSX unless a one-off.
+- **Responsive:** mobile-first; use `md:` / `lg:` for larger breakpoints.
+- **Reuse:** extract repeated patterns into [`src/frontend/src/components/ui/`](src/frontend/src/components/ui/) or [`src/frontend/src/lib/studio-ui.ts`](src/frontend/src/lib/studio-ui.ts).
+
+## Studio UI components (required for consistency)
+
+Do **not** hand-roll class strings for these patterns in studio pages and views. Use the shared components (tokens live in [`studio-ui.ts`](src/frontend/src/lib/studio-ui.ts)):
+
+| Pattern | Component | Notes |
+|--------|-----------|--------|
+| Action buttons | [`Button`](src/frontend/src/components/ui/Button.tsx) | `default`, `primary`, `accent`, `danger`; `ghost` → `default` |
+| Page title | [`StudioPageTitle`](src/frontend/src/components/ui/StudioPageTitle.tsx) | `text-[1.35rem]` page `<h1>` |
+| Page header (title + subtitle) | [`StudioPageHeader`](src/frontend/src/components/ui/StudioPageHeader.tsx) | Settings, Prompts, AI usage, etc. |
+| Underline tabs | [`StudioTabBar`](src/frontend/src/components/ui/StudioTabs.tsx) + [`StudioTab`](src/frontend/src/components/ui/StudioTabs.tsx) | Prompt library, Settings; not pill/chip tabs |
+| Tab panel content | [`StudioTabPanel`](src/frontend/src/components/ui/StudioTabs.tsx) | When using `role="tabpanel"` |
+
+**Avoid:** duplicate `studioPromptsTab*` pill tabs, inline `text-[1.35rem]` titles, or one-off `rounded-md border … px-3 py-2` buttons. Add a variant to the shared component instead.
+
+## Examples
+
+```tsx
+// BAD — one-off global class
+<div className="my-sidebar-row my-sidebar-row--active">
+
+// GOOD — Tailwind utilities (+ aria when needed)
+<button
+  type="button"
+  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm font-medium text-text hover:bg-surface-muted aria-pressed:bg-surface-muted"
+>
+```

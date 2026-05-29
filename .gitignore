@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+
+# Local runtime data (database + env) — see data/.env.example
+/data/*
+!/data/.env.example
+!/data/README.md

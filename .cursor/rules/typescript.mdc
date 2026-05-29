@@ -1,0 +1,17 @@
+---
+description: TypeScript standards
+globs: /**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# TypeScript
+
+- Use strict typing: no `any`, no non-null assertions, and no unchecked casts.
+- Use named exports only.
+- Use `import type` for type-only imports.
+- Add explicit return types for exported functions and components.
+- Prefer early returns to reduce nesting and complexity.
+- Keep files under 200 lines and functions under 40 lines.
+- Add a comment to each file describing what this file does
+- Keep reusable logic in `components/ui` or `lib` instead of duplicating in pages.
+- Prefer `@/` aliases for frontend imports when available.

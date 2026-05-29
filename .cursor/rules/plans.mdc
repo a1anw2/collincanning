@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+
+- When creating plans, always copy the plan to the project folder /.cursor/plans/
+- Any subsequent update to plans, should copy to the project folder
